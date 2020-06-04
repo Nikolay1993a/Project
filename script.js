@@ -77,13 +77,12 @@ let appData = {
 
             let items = prompt("Что принесет доплнительный доход? (Перечислите через зяпятую)", '');
 
-            if ( (typeof(items)) === 'string' && (typeof(items)) != null && items != '') {
+            if (typeof(items) != 'string' || typeof(items) == null || items == '') {
+                console.log("Вы ввели некорректные данные или не ввели их вовсе");
+            } else {
                 appData.income = items.split(', ');
                 appData.income.push(prompt("Может что-то еще?"));
                 appData.income.sort();
-            } else {
-                console.log("Bad resault");
-                i--;
             }
         }
 
